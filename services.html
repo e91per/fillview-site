@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services — Fillview</title>
+<meta name="description" content="Fillview terminal and Fillog journal: live positions, automatic journaling, multi-venue screener, risk tools, alerts and replay.">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Services — Fillview">
+<meta property="og:description" content="Fillview terminal and Fillog journal: live positions, automatic journaling, multi-venue screener, risk tools, alerts and replay.">
+<meta property="og:image" content="https://fillview.trade/desk-pos-en.webp">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#F2E9D5;--card:#F8F1E1;--ink:#2B2418;--mute:#6E6250;--line:#DDD0B4;--acc:#7A5A2B;--accink:#FFF8EA;--win:#2D6A3E;--loss:#A32D2A;--max:1120px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;height:62px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+.logo i{color:var(--loss);font-style:normal}
+.nav nav{display:flex;gap:20px;font-size:.92rem;color:var(--mute)}
+.nav nav a{text-decoration:none}
+.nav nav a:hover{color:var(--ink)}
+.grow{flex:1}
+.lang{border:1px solid var(--line);background:transparent;border-radius:99px;padding:.3rem .7rem;font:inherit;font-size:.82rem;color:var(--mute);cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--acc);background:var(--acc);color:var(--accink);border-radius:10px;padding:.6rem 1.05rem;font-weight:600;font-size:.95rem;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.hero{padding-top:76px;padding-bottom:40px;text-align:center}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:.22rem .8rem;font-size:.8rem;color:var(--mute);margin-bottom:18px;background:var(--card)}
+h1{font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 18px;font-weight:800}
+.lead{font-size:clamp(1.02rem,2vw,1.2rem);color:var(--mute);max-width:640px;margin:0 auto 28px}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.shot{margin:44px auto 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:0 30px 60px -30px rgba(43,36,24,.35)}
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.03em;line-height:1.2;margin:0 0 12px;font-weight:800}
+.sub{color:var(--mute);max-width:620px;margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--mute);font-size:.94rem}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--bg);border:1px solid var(--line);font-weight:700;font-size:.85rem;margin-bottom:12px}
+.split{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center}
+.split.rev{grid-template-columns:1.25fr 1fr}
+.split .shot{margin:0}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{padding:7px 0 7px 28px;position:relative;color:var(--ink)}
+ul.check li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:8px;border-left:2px solid var(--win);border-bottom:2px solid var(--win);transform:rotate(-45deg)}
+.phones{display:flex;gap:18px;justify-content:center}
+.phones .shot{margin:0;width:min(46%,270px);border-radius:22px}
+.venues{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.venues span{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:.3rem .8rem;font-size:.85rem;font-weight:600}
+.price{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:820px}
+.price .card{padding:26px}
+.price .big{font-size:2rem;font-weight:800;letter-spacing:-.03em;margin:6px 0 10px}
+.price .soon{color:var(--mute)}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;border-radius:6px;padding:.1rem .5rem;background:var(--acc);color:var(--accink)}
+.badge.mute{background:var(--line);color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);max-width:820px}
+.facts div{padding:16px 20px;border-bottom:1px solid var(--line)}
+.facts div:nth-child(odd){border-right:1px solid var(--line)}
+.facts span{display:block;font-size:.78rem;color:var(--mute);text-transform:none}
+.facts b{font-weight:600}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--mute);font-size:.86rem}
+footer .row{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+.note{font-size:.8rem;color:var(--mute);margin-top:14px}
+@media (max-width:860px){
+  .nav nav{display:none}
+  .grid{grid-template-columns:1fr}
+  .split,.split.rev{grid-template-columns:1fr;gap:24px}
+  .split.rev .shot{order:2}
+  .price,.facts{grid-template-columns:1fr}
+  .facts div:nth-child(odd){border-right:0}
+  section{padding:56px 0}
+  .hero{padding-top:52px}
+  .phones{gap:10px}
+}
+
+.menu{display:none;border:1px solid var(--line);background:transparent;border-radius:9px;width:38px;height:36px;font-size:1.1rem;color:var(--ink);cursor:pointer}
+.nav nav a.on{color:var(--ink);font-weight:700}
+.phead{padding-top:64px;padding-bottom:8px}
+.phead h1{font-size:clamp(2rem,4.6vw,3rem);text-align:left;margin-bottom:10px}
+.phead .lead{margin:0;max-width:680px;text-align:left}
+.tv{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.tv p{margin:0;color:var(--mute)}
+.tv b{color:var(--ink)}
+.tvmark{flex:none;width:44px;height:44px;border-radius:11px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:.95rem;letter-spacing:-.04em}
+form.cf{display:grid;gap:14px;max-width:640px}
+form.cf label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+form.cf input,form.cf select,form.cf textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;width:100%}
+form.cf textarea{min-height:150px;resize:vertical}
+form.cf input:focus,form.cf select:focus,form.cf textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+form.cf .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form.cf button{justify-self:start;cursor:pointer}
+.ok{display:none;background:#E4EEDD;border:1px solid #BCD3B4;color:var(--win);border-radius:10px;padding:12px 14px;font-size:.92rem}
+.ok.show{display:block}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.list{display:grid;gap:12px}
+.timeline{border-left:2px solid var(--line);padding-left:20px;display:grid;gap:18px}
+.timeline b{display:block}
+.timeline span{color:var(--mute);font-size:.94rem}
+@media (max-width:860px){
+  .menu{display:inline-grid;place-items:center}
+  header.open .nav nav{display:flex;position:absolute;top:62px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 20px 12px}
+  header.open .nav nav a{padding:10px 0;font-size:1rem;color:var(--ink)}
+  .two,form.cf .row2{grid-template-columns:1fr}
+  .nav .btn{padding:.5rem .8rem;font-size:.88rem}
+  .phead{padding-top:44px}
+}
+</style>
+</head>
+<body>
+<header id="hdr"><div class="wrap nav">
+  <a class="logo" href="index.html">Fillview<i>_</i></a>
+  <nav><a href="index.html" data-ko="홈">Home</a><a href="services.html" class=on data-ko="서비스">Services</a><a href="about.html" data-ko="회사 소개">About</a><a href="contact.html" data-ko="연락처">Contact</a></nav>
+  <span class="grow"></span>
+  <button class="lang" id="langBtn" aria-label="Language">한국어</button>
+  <a class="btn" href="https://e91per.github.io/fillview/" data-ko="앱 열기">Open app</a>
+  <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+</div></header>
+<main>
+<div class="wrap phead">
+  <h1 data-ko="서비스">Services</h1>
+  <p class="lead" data-ko="Fillview는 Fillview 터미널과 Fillog 매매일지 두 제품으로 이루어져 있어요. 둘 다 브라우저에서 바로 열리고, 설치나 회원가입이 필요 없어요.">Fillview has two products: the Fillview terminal and the Fillog trading journal. Both open right in the browser, with nothing to install and no sign-up.</p>
+</div>
+<section id="product"><div class="wrap">
+  <h2 data-ko="트레이딩에 필요한 걸 한 곳에">Everything a trader checks, in one place</h2>
+  <p class="sub" data-ko="탭을 열 개씩 띄우지 않아도 돼요. 차트를 중심에 두고 필요한 정보만 옆에서 꺼내 봐요.">No more ten open tabs. The chart stays at the center and everything else slides in beside it.</p>
+  <div class="grid">
+    <div class="card"><span class="num">01</span><h3 data-ko="실시간 포지션">Live positions</h3><p data-ko="바이낸스·바이빗·OKX·비트겟·하이퍼리퀴드·Aster·Lighter·cTrader의 열린 포지션을 한 목록과 차트 위 선으로 보여 줘요. 연결은 읽기 전용이라 주문은 하지 않아요.">Open positions from Binance, Bybit, OKX, Bitget, Hyperliquid, Aster, Lighter and cTrader in one list and as lines on the chart. Connections are read-only; Fillview never places orders.</p></div>
+    <div class="card"><span class="num">02</span><h3 data-ko="자동 매매일지">Automatic journal</h3><p data-ko="포지션이 0으로 돌아오면 체결을 하나의 매매로 묶어 일지(Fillog)에 저장해요. 진입·추가·청산 지점이 차트에 그대로 표시돼요.">When a position goes back to zero, its fills are grouped into one trade and saved to the journal (Fillog). Entries, adds and exits are drawn right on the chart.</p></div>
+    <div class="card"><span class="num">03</span><h3 data-ko="여러 거래소 스크리너">Multi-venue screener</h3><p data-ko="CEX와 DEX를 합쳐 오늘 상승률, 거래대금, 펀딩비, 미결제약정, 롱숏 비율을 한 번에 비교해요.">Today's gainers, volume, funding, open interest and long/short ratios combined across CEX and DEX venues.</p></div>
+    <div class="card"><span class="num">04</span><h3 data-ko="리스크 도구">Risk tools</h3><p data-ko="손익·평단 계산기, 일일 손실 한도와 연속 손실 경고(틸트), 매매원칙 체크로 계좌를 지켜요.">P&amp;L and average-price calculators, daily-loss and losing-streak (tilt) warnings, and a rules checklist before each entry.</p></div>
+    <div class="card"><span class="num">05</span><h3 data-ko="알림 · 경제 일정">Alerts and calendar</h3><p data-ko="가격, 펀딩, 미결제약정, 청산가 근접 알림과 FOMC·CPI 같은 주요 일정을 차트 위에 표시해요.">Price, funding, open-interest and near-liquidation alerts, plus FOMC, CPI and other key releases marked on the chart.</p></div>
+    <div class="card"><span class="num">06</span><h3 data-ko="리플레이 · 공유 카드">Replay and share cards</h3><p data-ko="지난 매매를 봉 단위로 다시 재생해 복기하고, 결과를 깔끔한 이미지 카드로 저장해요.">Replay past trades bar by bar to review them, and export results as clean image cards.</p></div>
+  </div>
+</div></section>
+
+
+<section><div class="wrap split">
+  <div>
+    <h2 data-ko="CEX와 DEX를 한 번에 보는 스크리너">One screener for CEX and DEX</h2>
+    <p class="sub" data-ko="하루 기준은 UTC 0시예요. 거래소마다 다른 펀딩 주기도 8시간 기준으로 맞춰서 비교해요.">The trading day starts at UTC 00:00, and funding with different intervals is normalized to 8 hours so venues compare fairly.</p>
+    <ul class="check">
+      <li data-ko="CEX·DEX 오늘 상승 상위, 7일 상승 상위">Top gainers today and over 7 days, CEX and DEX</li>
+      <li data-ko="전 거래소 합산 거래대금 상위 20">Top 20 by combined volume across venues</li>
+      <li data-ko="펀딩비 높은·낮은 순, 거래소 간 펀딩 차이">Highest and lowest funding, and funding gaps between venues</li>
+      <li data-ko="합산 미결제약정, 거래소별 비중, 롱숏 비율">Combined open interest, share by venue, long/short ratios</li>
+    </ul>
+    <div class="venues"><span>Binance</span><span>Bybit</span><span>OKX</span><span>Bitget</span><span>Hyperliquid</span><span>Aster</span><span>Lighter</span></div>
+  </div>
+  <div class="shot"><img src="desk-screen-en.webp" data-ko-src="desk-screen-ko.webp" width="1600" height="955" alt="Fillview screener" loading="lazy"></div>
+</div></section>
+
+<section id="journal"><div class="wrap split rev">
+  <div class="shot"><img src="desk-log-en.webp" data-ko-src="desk-log-ko.webp" width="1600" height="955" alt="Fillog trading journal dashboard" loading="lazy"></div>
+  <div>
+    <h2 data-ko="Fillog: 차트 안에 들어간 매매일지">Fillog: a journal built into the chart</h2>
+    <p class="sub" data-ko="거래소 API로 자동으로 기록하거나, 캡처와 AI 정리 또는 MT5 보고서 파일로 직접 올릴 수 있어요.">Record trades automatically through exchange APIs, or upload them yourself from screenshots, AI-formatted text or MT5 report files.</p>
+    <ul class="check">
+      <li data-ko="잔고 추이, 낙폭, 승률, 손익비 대시보드">Equity curve, drawdown, win rate and profit factor</li>
+      <li data-ko="캘린더와 날짜별 일지, 매매원칙 체크">Calendar, daily notes and rule checks</li>
+      <li data-ko="프랍 트레이딩 단계별 로드맵">Roadmap for prop-firm challenge phases</li>
+      <li data-ko="기록은 기기 안에 저장 · 백업 파일 지원">Data stays on your device, with backup files</li>
+    </ul>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-ko="폰에서도 그대로">Made for your phone, too</h2>
+  <p class="sub" data-ko="설치 없이 브라우저에서 열고, 홈 화면에 추가하면 앱처럼 써요. 접는 폰 화면에도 맞춰져 있어요.">Open it in the browser with nothing to install, or add it to your home screen and use it like an app. Foldable screens are supported.</p>
+  <div class="phones">
+    <div class="shot"><img src="mob-home-en.webp" data-ko-src="mob-home-ko.webp" width="760" height="1623" alt="Fillview on mobile" loading="lazy"></div>
+    <div class="shot"><img src="mob-pos-en.webp" data-ko-src="mob-pos-ko.webp" width="760" height="1623" alt="Live positions on mobile" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 data-ko="보안과 데이터">Security and your data</h2>
+  <p class="sub" data-ko="Fillview는 돈을 움직일 수 없게 설계했어요.">Fillview is designed so it can't move your money.</p>
+  <div class="grid">
+    <div class="card"><h3 data-ko="읽기 전용 연결">Read-only connections</h3><p data-ko="거래·출금 권한이 있는 API 키는 연결을 거절해요(확인 가능한 거래소). DEX는 지갑 주소만 받아요.">API keys with trading or withdrawal permission are refused where it can be checked. DEX accounts need only a wallet address.</p></div>
+    <div class="card"><h3 data-ko="키는 기기 안에">Keys stay on your device</h3><p data-ko="API 키는 브라우저 안에서 암호화해 저장하고, 요청 서명도 기기에서 해요. 서버에 키를 저장하지 않아요.">API keys are encrypted inside your browser and requests are signed on your device. Keys are never stored on a server.</p></div>
+    <div class="card"><h3 data-ko="기록도 기기 안에">Your records, your device</h3><p data-ko="매매일지와 설정은 브라우저 저장소에 있어요. 원할 때 백업 파일로 내보낼 수 있어요.">Journal entries and settings live in browser storage. Export a backup file whenever you like.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <h2 data-ko="요금">Pricing</h2>
+  <p class="sub" data-ko="차트는 가입 없이 무료예요. Pro는 텔레그램으로 로그인하면 3일 동안 무료로 써 볼 수 있어요.">Charts are free with no sign-up. Pro comes with a free 3-day trial when you sign in with Telegram.</p>
+  <div class="price">
+    <div class="card"><span class="badge" data-ko="가입 없음">No sign-up</span><div class="big" data-ko="무료">Free</div>
+      <ul class="check"><li data-ko="트레이딩뷰 고급 차트 · 지표 100여 개">TradingView Advanced Charts · 100+ indicators</li><li data-ko="차트 위 경제 일정">Economic calendar on the chart</li><li data-ko="손익 · 평단 계산기">P&amp;L and average-price calculator</li></ul></div>
+    <div class="card"><span class="badge" data-ko="3일 무료 체험">3-day free trial</span><div class="big">Pro</div>
+      <ul class="check"><li data-ko="거래소 연결과 실시간 포지션">Exchange connection and live positions</li><li data-ko="Fillog 매매일지 자동 기록">Fillog journal with auto-recording</li><li data-ko="알림 · 닮은 꼴 · 스크리너 · 호가창 · 뉴스">Alerts, similar setups, screener, order book, news</li><li data-ko="내 파인 스크립트 지표 · 표는 카드로">Your own Pine Script indicators, tables as cards</li><li data-ko="체험 뒤 월 $8.9 (텔레그램 스타 450개 · 곧 열려요)">Then $8.9/month in Telegram Stars (opening soon)</li></ul></div>
+  </div>
+</div></section>
+
+
+<section><div class="wrap">
+  <h2 data-ko="지원하는 거래소와 플랫폼">Supported venues and platforms</h2>
+  <p class="sub" data-ko="포지션 보기와 자동 기록은 읽기 전용으로 연결해요. 주문 기능은 없어요.">Positions and automatic journaling use read-only connections. There is no order execution.</p>
+  <div class="grid">
+    <div class="card"><h3 data-ko="중앙화 거래소 (CEX)">Centralized exchanges</h3><p>Binance · Bybit · OKX · Bitget</p></div>
+    <div class="card"><h3 data-ko="탈중앙화 거래소 (DEX)">Decentralized exchanges</h3><p>Hyperliquid · Aster · Lighter</p></div>
+    <div class="card"><h3 data-ko="FX · CFD 플랫폼">FX and CFD platforms</h3><p data-ko="cTrader (Open API, 보기 전용 로그인) · MT5 보고서 파일 가져오기">cTrader (Open API, view-only sign-in) · MT5 report file import</p></div>
+  </div>
+</div></section>
+<section><div class="wrap two">
+  <div>
+    <h2 data-ko="누구를 위한 서비스인가요">Who it's for</h2>
+    <p class="sub" data-ko="여러 거래소에서 선물을 거래하는 개인 트레이더, 그리고 프랍 트레이딩 챌린지를 하는 트레이더를 위해 만들었어요.">Individual traders who trade futures across several exchanges, and traders working through prop-firm challenges.</p>
+  </div>
+  <div class="list">
+    <div class="card"><h3 data-ko="여러 거래소를 쓰는 트레이더">Multi-exchange traders</h3><p data-ko="흩어진 포지션과 손익을 한 화면에서 확인해요.">See scattered positions and P&amp;L on one screen.</p></div>
+    <div class="card"><h3 data-ko="기록하며 성장하는 트레이더">Traders who review</h3><p data-ko="매매가 자동으로 일지에 남아 복기 시간이 줄어요.">Trades land in the journal automatically, so review takes less time.</p></div>
+  </div>
+</div></section>
+<section><div class="wrap"><div class="cta" style="justify-content:flex-start">
+  <a class="btn" href="https://e91per.github.io/fillview/" data-ko="앱 열기">Open app</a><a class="btn ghost" href="contact.html" data-ko="문의하기">Contact us</a>
+</div></div></section>
+</main>
+<footer><div class="wrap">
+  <div class="row">
+    <b style="color:var(--ink)">Fillview<span style="color:var(--loss)">_</span></b>
+    <span>© 2026 Fillview</span>
+    <span class="grow"></span>
+    <a href="services.html" data-ko="서비스">Services</a>
+    <a href="about.html" data-ko="회사 소개">About</a>
+    <a href="contact.html" data-ko="연락처">Contact</a>
+    <a href="terms.html" data-ko="이용약관">Terms</a>
+    <a href="privacy.html" data-ko="개인정보처리방침">Privacy</a>
+  </div>
+  <p class="note" data-ko="Fillview의 차트 솔루션은 글로벌 트레이더 커뮤니티를 위한 차트 플랫폼 <a href=&quot;https://www.tradingview.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>TradingView</a>가 제공합니다. TradingView는 TradingView, Inc.의 상표입니다. 거래소 이름은 각 소유자의 상표이며 Fillview와 제휴 관계가 아닙니다.">The charting solution on Fillview is provided by <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a>, a charting platform for a global community of traders. TradingView is a trademark of TradingView, Inc. Exchange names are trademarks of their owners and do not imply affiliation with Fillview.</p>
+</div></footer>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('[data-ko]')),imgs=[].slice.call(document.querySelectorAll('[data-ko-src]'));
+  els.forEach(function(e){e.setAttribute('data-en',e.innerHTML)});
+  imgs.forEach(function(e){e.setAttribute('data-en-src',e.getAttribute('src'))});
+  function set(l){
+    els.forEach(function(e){e.innerHTML=e.getAttribute(l==='ko'?'data-ko':'data-en')});
+    imgs.forEach(function(e){e.setAttribute('src',e.getAttribute(l==='ko'?'data-ko-src':'data-en-src'))});
+    document.documentElement.lang=l;document.getElementById('langBtn').textContent=l==='ko'?'English':'한국어';
+    try{localStorage.setItem('fv-lang',l)}catch(_){}
+  }
+  var saved=null;try{saved=localStorage.getItem('fv-lang')}catch(_){}
+  var cur=saved||((navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en');
+  if(cur==='ko')set('ko');
+  document.getElementById('langBtn').addEventListener('click',function(){cur=cur==='ko'?'en':'ko';set(cur)});
+})();
+</script>
+<script>document.getElementById("menuBtn").addEventListener("click",function(){document.getElementById("hdr").classList.toggle("open")});</script>
+
+</body>
+</html>

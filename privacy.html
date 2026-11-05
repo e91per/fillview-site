@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy — Fillview</title><link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#F2E9D5;--card:#F8F1E1;--ink:#2B2418;--mute:#6E6250;--line:#DDD0B4;--acc:#7A5A2B;--loss:#A32D2A}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;font-size:16px;line-height:1.75;word-break:keep-all}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}header{border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;height:60px}.logo{font-weight:800;font-size:1.2rem;text-decoration:none;color:inherit}.logo i{color:var(--loss);font-style:normal}
+.grow{flex:1}.lang{border:1px solid var(--line);background:transparent;border-radius:99px;padding:.3rem .7rem;font:inherit;font-size:.82rem;color:var(--mute);cursor:pointer}
+h1{font-size:2rem;letter-spacing:-.03em;margin:48px 0 4px}.upd{color:var(--mute);font-size:.88rem;margin:0 0 32px}
+h2{font-size:1.12rem;margin:34px 0 8px}p,li{color:#3E3526}ul{padding-left:1.2rem}a{color:var(--acc)}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0 40px;font-size:.85rem;color:var(--mute)}footer a{color:inherit;margin-right:16px}
+[data-l]{display:none}html[lang=en] [data-l=en],html[lang=ko] [data-l=ko]{display:block}
+</style></head><body>
+<header><div class="wrap nav"><a class="logo" href="index.html">Fillview<i>_</i></a><span class="grow"></span><a href="contact.html" style="font-size:.9rem;color:var(--mute);text-decoration:none">Contact</a><button class="lang" id="langBtn">한국어</button></div></header>
+<main class="wrap"><div data-l="en"><h1>Privacy Policy</h1><p class="upd">Effective October 30, 2026</p>
+<p>Fillview is built so that your trading data stays on your device. This policy explains what that means in practice.</p>
+<h2>1. What stays on your device</h2><ul>
+<li><b>Journal and settings.</b> Trades, notes, screenshots and preferences are stored in your browser's storage (IndexedDB). We do not receive a copy.</li>
+<li><b>API keys.</b> Exchange API keys are encrypted in your browser with a key that cannot be exported, and requests are signed on your device. We never receive or store your keys.</li>
+<li><b>Wallet addresses.</b> Addresses for DEX accounts are stored locally and used only to read public account data.</li></ul>
+<h2>2. What passes through our servers</h2><p>Some exchanges block requests sent directly from a browser. For those, requests pass through a small relay we run on Cloudflare Workers. The relay forwards the request to the exchange and returns the response. It only forwards to an allowlist of exchange hosts and does not log or inspect request contents. Public market data may be cached at the edge for about 15 seconds to reduce load; signed account requests are never cached or stored. Signed requests contain a signature and your API key's public identifier, never the secret.</p>
+<p>For cTrader, sign-in uses Spotware's OAuth. The relay exchanges the sign-in code for an access token and returns it to your browser without storing it.</p>
+<h2>3. Third parties</h2><p>Your browser connects directly to exchanges and data providers (for example Binance, Bybit, OKX, Bitget, Hyperliquid, Aster, Lighter, Spotware) to load market and account data. Fonts and libraries may load from public CDNs. Our hosting provider (GitHub Pages or Cloudflare) may keep standard access logs such as IP address and time of request. Each of these parties handles data under its own privacy policy.</p>
+<h2>4. What we do not do</h2><ul><li>No accounts or sign-up are required today.</li><li>No advertising trackers and no sale of data.</li><li>No access to your funds. Fillview cannot place orders or withdraw.</li></ul>
+<h2>5. Future accounts</h2><p>If we add optional sign-in (for example to unlock paid features), we will update this policy before launch and describe exactly what is collected.</p>
+<h2>6. Deleting your data</h2><p>Remove a connection in the app to delete its stored key. Clear site data for Fillview in your browser to delete everything. Export a backup first if you want to keep your journal.</p>
+<h2>7. Contact</h2><p>Privacy questions: <a href="mailto:contact@fillview.trade">contact@fillview.trade</a> (Sungwon Yoon, operator).</p></div><div data-l="ko"><h1>개인정보처리방침</h1><p class="upd">시행일 2026년 10월 30일</p>
+<p>Fillview는 이용자의 매매 데이터가 이용자 기기에 머물도록 설계했습니다. 이 방침은 그것이 실제로 무엇을 뜻하는지 설명합니다.</p>
+<h2>1. 기기 안에 저장되는 정보</h2><ul>
+<li><b>매매일지와 설정.</b> 매매 기록, 메모, 캡처, 설정은 브라우저 저장소(IndexedDB)에 저장되며 Fillview는 사본을 받지 않습니다.</li>
+<li><b>API 키.</b> 거래소 API 키는 내보낼 수 없는 키로 브라우저 안에서 암호화되고, 요청 서명도 기기에서 합니다. Fillview는 키를 받거나 저장하지 않습니다.</li>
+<li><b>지갑 주소.</b> DEX 계정 주소는 기기에 저장되며 공개된 계정 정보를 읽는 데만 씁니다.</li></ul>
+<h2>2. 서버를 거치는 정보</h2><p>일부 거래소는 브라우저에서 직접 보내는 요청을 막습니다. 이 경우 Fillview가 Cloudflare Workers에서 운영하는 중계 서버를 거칩니다. 중계 서버는 요청을 거래소로 전달하고 응답을 돌려줄 뿐, 허용된 거래소 주소로만 전달하고 요청 내용을 기록하거나 열람하지 않습니다. 부하를 줄이려고 공개 시세 데이터는 약 15초간 캐시될 수 있지만, 서명된 계정 요청은 캐시하거나 저장하지 않습니다. 서명된 요청에는 서명값과 API 키의 공개 식별자만 들어 있고 비밀키는 들어 있지 않습니다.</p>
+<p>cTrader 로그인은 Spotware의 OAuth를 사용합니다. 중계 서버는 로그인 코드를 접근 토큰으로 바꿔 브라우저에 돌려주며 저장하지 않습니다.</p>
+<h2>3. 제3자</h2><p>브라우저는 시세와 계정 정보를 불러오려고 거래소와 데이터 제공자(바이낸스, 바이빗, OKX, 비트겟, 하이퍼리퀴드, Aster, Lighter, Spotware 등)에 직접 연결합니다. 글꼴과 라이브러리는 공개 CDN에서 불러올 수 있습니다. 호스팅 업체(GitHub Pages 또는 Cloudflare)는 IP 주소와 접속 시각 같은 일반 접속 기록을 남길 수 있습니다. 각 업체는 자체 개인정보처리방침에 따라 정보를 처리합니다.</p>
+<h2>4. 하지 않는 것</h2><ul><li>현재 회원가입이나 로그인이 필요 없습니다.</li><li>광고 추적 도구를 쓰지 않고 데이터를 판매하지 않습니다.</li><li>자금에 접근하지 않습니다. Fillview는 주문이나 출금을 할 수 없습니다.</li></ul>
+<h2>5. 향후 계정 기능</h2><p>유료 기능 등을 위해 선택 로그인을 추가하게 되면, 출시 전에 이 방침을 갱신하고 수집 항목을 정확히 안내합니다.</p>
+<h2>6. 데이터 삭제</h2><p>앱에서 연결을 삭제하면 저장된 키가 지워집니다. 브라우저에서 Fillview 사이트 데이터를 지우면 모든 정보가 삭제됩니다. 일지를 보관하려면 먼저 백업 파일을 내보내 주세요.</p>
+<h2>7. 문의</h2><p>개인정보 관련 문의: <a href="mailto:contact@fillview.trade">contact@fillview.trade</a> (운영자 윤성원)</p></div></main>
+<footer><div class="wrap"><a href="index.html">Fillview</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="terms.html">Terms · 이용약관</a><a href="privacy.html">Privacy · 개인정보처리방침</a><a href="mailto:contact@fillview.trade">contact@fillview.trade</a></div></footer>
+<script>(function(){var b=document.getElementById('langBtn');function s(l){document.documentElement.lang=l;b.textContent=l==='ko'?'English':'한국어';try{localStorage.setItem('fv-lang',l)}catch(_){}}
+var c=null;try{c=localStorage.getItem('fv-lang')}catch(_){}c=c||((navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en');s(c);b.onclick=function(){c=c==='ko'?'en':'ko';s(c)}})();</script>
+</body></html>
